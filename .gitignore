@@ -1,0 +1,36 @@
+# =========================================================================
+# Git Ignore - SysMercado (Java / JavaFX / Maven)
+# =========================================================================
+
+# Arquivos compilados (.class)
+*.class
+
+# Diretório de build do Maven (binários e relatórios)
+target/
+
+# Logs e arquivos de execução
+*.log
+*.tmp
+*.bak
+*.swp
+
+# Arquivos de ambiente de desenvolvimento - IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Arquivos de ambiente de desenvolvimento - Eclipse
+.project
+.classpath
+.settings/
+bin/
+
+# Arquivos de ambiente de desenvolvimento - Visual Studio Code
+.vscode/
+
+# Arquivos de sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini

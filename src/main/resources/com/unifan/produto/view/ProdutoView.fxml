@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="600.0" minWidth="900.0" prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.unifan.produto.controller.ProdutoController">
+   <children>
+      <TabPane prefHeight="700.0" prefWidth="1100.0" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+        <tabs>
+          <!-- ABA 1: PRODUTOS E CADASTRO -->
+          <Tab text="Produtos">
+             <content>
+                <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                   <padding>
+                      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                   </padding>
+                   <children>
+                      <!-- Barra de Consulta Rápida -->
+                      <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="1080.0" spacing="10.0">
+                         <children>
+                            <Label text="Consultar por Código:">
+                               <font>
+                                  <Font name="System Bold" size="13.0" />
+                               </font>
+                            </Label>
+                            <TextField fx:id="txtConsultaCodigo" prefHeight="30.0" prefWidth="160.0" promptText="Ex: PROD0001" />
+                            <Button fx:id="btnConsultar" mnemonicParsing="false" onAction="#onBtnConsultarAction" prefHeight="30.0" prefWidth="100.0" text="Consultar" />
+                            <Button fx:id="btnListarTodos" mnemonicParsing="false" onAction="#onBtnListarTodosAction" prefHeight="30.0" prefWidth="100.0" text="Listar Todos" />
+                            <Label fx:id="lblStatusPesquisa">
+                               <font>
+                                  <Font size="12.0" />
+                               </font>
+                               <HBox.margin>
+                                  <Insets left="15.0" />
+                               </HBox.margin>
+                            </Label>
+                         </children>
+                      </HBox>
+
+                      <!-- Painel Dividido: Formulário à esquerda, Tabela à direita -->
+                      <SplitPane dividerPositions="0.38" prefHeight="550.0" prefWidth="1080.0" VBox.vgrow="ALWAYS">
+                        <items>
+                          <!-- Lado Esquerdo: Formulário -->
+                          <VBox prefHeight="550.0" prefWidth="420.0" spacing="8.0">
+                             <padding>
+                                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                             </padding>
+                             <children>
+                                <Label text="Dados do Produto">
+                                   <font>
+                                      <Font name="System Bold" size="14.0" />
+                                   </font>
+                                </Label>
+                                <GridPane hgap="8.0" vgap="6.0">
+                                  <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="140.0" minWidth="120.0" prefWidth="130.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="260.0" />
+                                  </columnConstraints>
+                                  <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  </rowConstraints>
+                                   <children>
+                                      <Label text="Código:" />
+                                      <TextField fx:id="txtCodigo" promptText="Ex: PROD0001" GridPane.columnIndex="1" />
+
+                                      <Label text="Nome:" GridPane.rowIndex="1" />
+                                      <TextField fx:id="txtNome" promptText="Nome do produto" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                                      <Label text="Descrição:" GridPane.rowIndex="2" />
+                                      <TextField fx:id="txtDescricao" promptText="Descrição" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                                      <Label text="Data Fabricação:" GridPane.rowIndex="3" />
+                                      <DatePicker fx:id="dpFabricacao" maxWidth="1.7976931348623157E308" promptText="dd/mm/aaaa" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                                      <Label text="Data Validade:" GridPane.rowIndex="4" />
+                                      <DatePicker fx:id="dpValidade" maxWidth="1.7976931348623157E308" promptText="dd/mm/aaaa" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+                                      <Label text="Preço Compra (R$):" GridPane.rowIndex="5" />
+                                      <TextField fx:id="txtPrecoCompra" promptText="Ex: 10.50" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
+                                      <Label text="Preço Venda (R$):" GridPane.rowIndex="6" />
+                                      <TextField fx:id="txtPrecoVenda" promptText="Ex: 15.90" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+
+                                      <Label text="Qtd. em Estoque:" GridPane.rowIndex="7" />
+                                      <TextField fx:id="txtEstoque" promptText="Ex: 50" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                   </children>
+                                </GridPane>
+
+                                <Separator prefWidth="200.0">
+                                   <VBox.margin>
+                                      <Insets bottom="4.0" top="4.0" />
+                                   </VBox.margin>
+                                </Separator>
+
+                                <Label text="Dados da Categoria">
+                                   <font>
+                                      <Font name="System Bold" size="14.0" />
+                                   </font>
+                                </Label>
+                                <GridPane hgap="8.0" vgap="6.0">
+                                  <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="140.0" minWidth="120.0" prefWidth="130.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="260.0" />
+                                  </columnConstraints>
+                                  <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  </rowConstraints>
+                                   <children>
+                                      <Label text="ID Categoria:" />
+                                      <TextField fx:id="txtCategoriaId" promptText="Ex: 1" GridPane.columnIndex="1" />
+
+                                      <Label text="Nome Categoria:" GridPane.rowIndex="1" />
+                                      <TextField fx:id="txtCategoriaNome" promptText="Ex: Grãos e Cereais" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                                      <Label text="Setor:" GridPane.rowIndex="2" />
+                                      <TextField fx:id="txtCategoriaSetor" promptText="Ex: Mercearia, Limpeza..." GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                                      <Label text="Descrição Categoria:" GridPane.rowIndex="3" />
+                                      <TextField fx:id="txtCategoriaDescricao" promptText="Descrição da categoria" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                   </children>
+                                </GridPane>
+
+                                <!-- Botões de Ação do Formulário -->
+                                <HBox alignment="CENTER" prefHeight="45.0" prefWidth="400.0" spacing="10.0">
+                                   <children>
+                                      <Button fx:id="btnCadastrar" mnemonicParsing="false" onAction="#onBtnCadastrarAction" prefHeight="30.0" prefWidth="85.0" text="Cadastrar" />
+                                      <Button fx:id="btnAtualizar" mnemonicParsing="false" onAction="#onBtnAtualizarAction" prefHeight="30.0" prefWidth="85.0" text="Atualizar" />
+                                      <Button fx:id="btnExcluir" mnemonicParsing="false" onAction="#onBtnExcluirAction" prefHeight="30.0" prefWidth="85.0" text="Excluir" />
+                                      <Button fx:id="btnLimpar" mnemonicParsing="false" onAction="#onBtnLimparAction" prefHeight="30.0" prefWidth="85.0" text="Limpar" />
+                                   </children>
+                                   <VBox.margin>
+                                      <Insets top="8.0" />
+                                   </VBox.margin>
+                                </HBox>
+                             </children>
+                          </VBox>
+
+                          <!-- Lado Direito: Tabela de Dados -->
+                          <VBox prefHeight="550.0" prefWidth="640.0" spacing="6.0">
+                             <padding>
+                                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                             </padding>
+                             <children>
+                                <Label text="Produtos Cadastrados">
+                                   <font>
+                                      <Font name="System Bold" size="14.0" />
+                                   </font>
+                                </Label>
+                                <TableView fx:id="tableViewProdutos" prefHeight="480.0" prefWidth="640.0" VBox.vgrow="ALWAYS">
+                                  <columns>
+                                    <TableColumn fx:id="colCodigo" prefWidth="85.0" text="Código" />
+                                    <TableColumn fx:id="colNome" prefWidth="140.0" text="Nome" />
+                                    <TableColumn fx:id="colCategoria" prefWidth="110.0" text="Categoria" />
+                                    <TableColumn fx:id="colSetor" prefWidth="85.0" text="Setor" />
+                                    <TableColumn fx:id="colPrecoCompra" prefWidth="90.0" text="Compra (R$)" />
+                                    <TableColumn fx:id="colPrecoVenda" prefWidth="90.0" text="Venda (R$)" />
+                                    <TableColumn fx:id="colEstoque" prefWidth="65.0" text="Estoque" />
+                                    <TableColumn fx:id="colFabricacao" prefWidth="85.0" text="Fabricação" />
+                                    <TableColumn fx:id="colValidade" prefWidth="85.0" text="Validade" />
+                                  </columns>
+                                </TableView>
+                                <Label text="* Clique em uma linha da tabela para carregar os dados no formulário.">
+                                   <font>
+                                      <Font size="11.0" />
+                                   </font>
+                                </Label>
+                             </children>
+                          </VBox>
+                        </items>
+                      </SplitPane>
+                   </children>
+                </VBox>
+             </content>
+          </Tab>
+
+          <!-- ABA 2: RELATÓRIOS -->
+          <Tab text="Relatórios">
+             <content>
+                <VBox prefHeight="200.0" prefWidth="100.0" spacing="12.0">
+                   <padding>
+                      <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                   </padding>
+                   <children>
+                      <Label text="Relatórios de Produtos">
+                         <font>
+                            <Font name="System Bold" size="14.0" />
+                         </font>
+                      </Label>
+                      
+                      <!-- Botões de Relatórios -->
+                      <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="1070.0" spacing="8.0">
+                         <children>
+                            <Button fx:id="btnRelatorioVencimento" mnemonicParsing="false" onAction="#onBtnRelatorioVencimentoAction" prefHeight="30.0" text="Vencimento (60 dias)" />
+                            <Button fx:id="btnRelatorioEstoqueBaixo" mnemonicParsing="false" onAction="#onBtnRelatorioEstoqueBaixoAction" prefHeight="30.0" text="Estoque Baixo (&lt; 10)" />
+                            <Button fx:id="btnRelatorioMargem" mnemonicParsing="false" onAction="#onBtnRelatorioMargemAction" prefHeight="30.0" text="Margem Média por Categoria" />
+                            <Button fx:id="btnRelatorioSetor" mnemonicParsing="false" onAction="#onBtnRelatorioSetorAction" prefHeight="30.0" text="Produtos por Setor" />
+                            <Button fx:id="btnRelatorioLucroTotal" mnemonicParsing="false" onAction="#onBtnRelatorioLucroTotalAction" prefHeight="30.0" text="Resumo Financeiro" />
+                            <Button fx:id="btnLimparRelatorio" mnemonicParsing="false" onAction="#onBtnLimparRelatorioAction" prefHeight="30.0" text="Limpar" />
+                         </children>
+                      </HBox>
+
+                      <!-- Área de Exibição do Relatório -->
+                      <VBox prefHeight="450.0" prefWidth="1070.0" spacing="6.0" VBox.vgrow="ALWAYS">
+                         <children>
+                            <Label text="Resultado:">
+                               <font>
+                                  <Font name="System Bold" size="13.0" />
+                               </font>
+                            </Label>
+                            <TextArea fx:id="txtAreaRelatorio" editable="false" prefHeight="450.0" prefWidth="1070.0" promptText="Selecione um relatório acima para visualizar os dados..." style="-fx-font-family: 'Consolas', 'Courier New', monospace; -fx-font-size: 13px;" VBox.vgrow="ALWAYS" />
+                         </children>
+                      </VBox>
+                   </children>
+                </VBox>
+             </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</VBox>

@@ -1,0 +1,11 @@
+codigo;nome;descricao;dataFabricacao;dataValidade;precoCompra;precoVenda;quantidadeEstoque;categoriaId;categoriaNome;categoriaDescricao;categoriaSetor
+PROD0001;Arroz Branco 5kg;Arroz agulhinha tipo 1;2026-07-15;2027-07-15;21.50;28.90;35;1;Grãos e Cereais;Itens não perecíveis;Mercearia
+PROD0002;Feijão Carioca 1kg;Feijão carioca selecionado;2026-08-20;2026-11-25;6.20;8.99;8;1;Grãos e Cereais;Itens não perecíveis;Mercearia
+PROD0003;Leite Integral 1L;Leite UHT longa vida;2026-10-05;2026-11-12;3.80;5.49;50;2;Laticínios;Derivados do leite refrigerados;Frios e Laticínios
+PROD0004;Iogurte Natural 170g;Iogurte desnatado sem adição;2026-10-10;2026-11-05;2.10;3.50;4;2;Laticínios;Derivados do leite refrigerados;Frios e Laticínios
+PROD0005;Suco de Laranja 1L;Suco integral pasteurizado;2026-09-01;2027-02-28;7.50;11.90;18;3;Bebidas;Sucos e refrigerantes;Bebidas
+PROD0006;Detergente Neutro 500ml;Detergente líquido concentrado;2026-05-10;2027-05-10;1.80;2.99;6;4;Limpeza Doméstica;Produtos de limpeza geral;Limpeza
+PROD0007;Café Torrado e Moído 500g;Café tradicional a vácuo;2026-09-12;2027-09-12;14.25;19.80;22;1;Grãos e Cereais;Itens não perecíveis;Mercearia
+PROD0008;Queijo Mussarela 500g;Queijo fatiado em embalagem pouch;2026-10-01;2026-11-18;18.00;26.50;7;2;Laticínios;Derivados do leite refrigerados;Frios e Laticínios
+PROD0009;Azeite Extra Virgem 500ml;Acidez máxima 0.5%;2026-08-11;2027-10-01;28.00;39.90;12;5;Azeites e Óleos;Temperos e óleos;Mercearia
+PROD0010;Aveia;50g;2026-10-14;2027-10-15;10;20;5;1;Comida;Alimento;Alimentos
